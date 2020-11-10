@@ -6,7 +6,7 @@
 
 `Framework` - React.js
 
-> this app shows how to use the following correctly:
+this app shows how to use the following correctly:
 
 - useRef
 - ErrorBoundary
