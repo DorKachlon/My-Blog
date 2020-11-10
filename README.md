@@ -1,68 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# My Blog Application
 
-## Available Scripts
+## Info
 
-In the project directory, you can run:
+`Type` - Front-end
 
-### `npm start`
+`Framework` - React.js
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> this app shows how to use the following correctly:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- useRef
+- ErrorBoundary
+- LazyLoading
 
-### `npm test`
+## ErrorBoundary
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To create the Error, I made a button that when clicked, triggers a function named `createError` that set in State `comments` an empty object.
 
-### `npm run build`
+```javascript
+const createError = () => {
+  setComments({});
+};
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> Why its create an Error ? ?
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+At the beginning of the component I defined the above state as an array:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```javascript
+const [comments, setComments] = useState([]);
+```
 
-### `npm run eject`
+Later in the component, a map function is performed on the current state that only works on an array, and because I placed an object in the `comments`, an error is created.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```javascript
+{
+  comments.map((obj) => {
+    return <SingleComment comment={obj} />;
+  });
+}
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Demo
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+https://my-blog-five-alpha.vercel.app/
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Simulation
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![gif from shareX](GIF.gif)
